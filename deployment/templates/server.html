@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stock Data and Predictions</title>
+    <!-- Socket.IO client -->
+    <script src="https://cdn.socket.io/4.6.1/socket.io.min.js" crossorigin="anonymous"></script>
+    <!-- Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>NVDA Stock Data and Predictions</h1>
+    <canvas id="myChart" width="800" height="400"></canvas>
+    
+    <script>
+        // Connect to the Socket.IO server
+        var socket = io("http://127.0.0.1:5000");
+        var ctx = document.getElementById("myChart").getContext("2d");
+
+        // Initialize the chart with empty labels and data arrays
+        var chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: [],
+                datasets: [{
+                    label: 'Actual Price',
+                    borderColor: 'blue',
+                    data: [],
+                    fill: false
+                }, {
+                    label: 'Predicted Price',
+                    borderColor: 'red',
+                    data: [],
+                    fill: false
+                }]
+            },
+            options: {
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Time'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Price'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Listen for update events from the server
+        socket.on("update", function(data) {
+            console.log("Data received:", data);
+            // Push the new time and price values to the chart data
+            chart.data.labels.push(data.time);
+            chart.data.datasets[0].data.push(data.actual);
+            chart.data.datasets[1].data.push(data.predicted);
+            // Update the chart to reflect the new data
+            chart.update();
+        });
+    </script>
+</body>
+</html>
