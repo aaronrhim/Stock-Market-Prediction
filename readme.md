@@ -3,7 +3,7 @@
 ## Business Context
 
 Accurate stock price prediction plays a pivotal role in financial markets, influencing investment decisions, risk management, and portfolio optimization. This project leverages **recurrent neural networks (RNNs)** and **long short-term memory (LSTM)** networks for stock price prediction, showcasing the application of deep learning techniques in financial forecasting.
-
+  
 ---
 
 ## Practical Application
