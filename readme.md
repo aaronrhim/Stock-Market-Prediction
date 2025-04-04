@@ -1,6 +1,6 @@
 # Stock Market Prediction using time-series forecasting on an LSTM model
 
-### Goal: Predict day-to-day changes in the stock market and display relevant information in a browser interface.
+### Goal: Predict minute-to-minute changes in the stock market and display relevant information in a browser interface.
 
 ### Method used: Time-series forecast with an RNN and an LSTM.
 
