@@ -24,4 +24,10 @@ The following was taken from my model deployment page in which I run a front-end
 ![NVDA](./assets/gif/NVDA_Interface.gif)
 
 ### Results and Future Considerations
-Throughout this project, I gained exposure to the more technical side of the stock market. 
+Throughout this project, I gained exposure to the more technical side of the stock market. I realized too late that my model design was not a good choice. Using an LSTM to predict stock prices, while a good idea, required me to create more modular code in that it must evolve as time passes. This would require different methods to save a model checkpoint and continue training it on new data so it can test on the unforseen. 
+
+1. Using sliding-window technique in a real-world scenario
+Due to my model only being deployed in a prototype scenario, I never really got the chance to test it and train it during the actual market hours. What this means is that I missed multiple integrals functions that are required for this model to work in the first place:
+- Code works in an infinite setting in that it will continuously grow without interruption
+- Code only works in market hours
+- Code works in the present
