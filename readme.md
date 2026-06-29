@@ -21,7 +21,6 @@ The following was taken from my model training page where I fed my model data ra
 
 ### Interface In-Action
 The following was taken from my model deployment page in which I run a front-end application that displays a prototype of how the model would be applied. Ideally, the predictions would be fairly similar to the actual stock values however, I struggled to get the right scale for my model (-5 as opposed to -0.5) which is why, when my model predicts on the scaled value, the outcome is so skewed. 
-![NVDA](./assets/gif/NVDA_Interface.gif)
 
 ### Results and Future Considerations
 Throughout this project, I gained exposure to the more technical side of the stock market. I realized too late that my model design was not a good choice. Using an LSTM to predict stock prices, while a good idea, required me to create more modular code in that it must evolve as time passes. This would require different methods to save a model checkpoint and continue training it on new data so it can test on the unforseen. 
